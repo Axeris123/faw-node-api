@@ -63,7 +63,7 @@ exports.userLogin = (req, res) => {
                 message: 'Incorrect Username of Password'
             });
 
-        const token = jwt.sign({id: found_user._id, email: user.email}, salt, {
+        const token = jwt.sign({id: found_user._id, email: found_user.email}, salt, {
             expiresIn: 86400
         });
 
