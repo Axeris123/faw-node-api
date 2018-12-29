@@ -18,9 +18,7 @@ exports.createUser = (req, res) => {
             console.log(err);
             if (err) return res.status(400).send("There was a problem registering the user.");
 
-            let token = jwt.sign({id: user._id}, salt, {
-                id: user._id,
-                email: user.email,
+            let token = jwt.sign({id: user._id, email: user.email}, salt, {
                 expiresIn: 86400 // expires in 24 hours
             });
 
@@ -65,9 +63,7 @@ exports.userLogin = (req, res) => {
                 message: 'Incorrect Username of Password'
             });
 
-        const token = jwt.sign({id: found_user._id}, salt, {
-            id: found_user._id,
-            email: found_user.email,
+        const token = jwt.sign({id: found_user._id, email: user.email}, salt, {
             expiresIn: 86400
         });
 
