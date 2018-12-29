@@ -20,8 +20,7 @@ exports.createUser = (req, res) => {
 
             let token = jwt.sign({id: user._id}, salt, {
                 id: user._id,
-                name: user.name,
-                surname: user.surname,
+                email: user.email,
                 expiresIn: 86400 // expires in 24 hours
             });
 
@@ -68,8 +67,7 @@ exports.userLogin = (req, res) => {
 
         const token = jwt.sign({id: found_user._id}, salt, {
             id: found_user._id,
-            name: found_user.name,
-            surname: found_user.surname,
+            email: found_user.email,
             expiresIn: 86400
         });
 
