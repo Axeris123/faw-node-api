@@ -23,6 +23,7 @@ exports.create_book = (req, res) => {
 exports.post_review = (req, res) => {
     bookReview.create({
             review: req.body.review,
+            stars: req.body.stars,
             book: req.params.bookId,
             author: req.userId
         },
