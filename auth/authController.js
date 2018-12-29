@@ -19,6 +19,9 @@ exports.createUser = (req, res) => {
             if (err) return res.status(400).send("There was a problem registering the user.");
 
             let token = jwt.sign({id: user._id}, salt, {
+                id: user._id,
+                name: user.name,
+                surname: user.surname,
                 expiresIn: 86400 // expires in 24 hours
             });
 
@@ -64,6 +67,9 @@ exports.userLogin = (req, res) => {
             });
 
         const token = jwt.sign({id: found_user._id}, salt, {
+            id: found_user._id,
+            name: found_user.name,
+            surname: found_user.surname,
             expiresIn: 86400
         });
 
