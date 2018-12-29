@@ -10,6 +10,9 @@ const BooksSchema = new Schema({
     author: {
         type: String,
     },
+    description: {
+        type: String,
+    },
     created: {
         type: Date,
         default: Date.now
