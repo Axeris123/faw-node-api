@@ -20,6 +20,10 @@ const BooksReviewsSchema = new Schema({
         ref: 'Books',
         required: true
     },
+    created: {
+        type: Date,
+        default: Date.now
+    },
 });
 
 module.exports = mongoose.model('BooksReviews', BooksReviewsSchema);
